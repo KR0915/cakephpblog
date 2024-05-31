@@ -6,7 +6,7 @@
         //debug($post);
         //echo h($post['Post']['title']);//hはhtmlが用意しているhtmlキャラクターズの略称
         //
-        echo $this->Html->link($post['Post']['title'],'/posts/view/'.$post['Post']['id']);
+        echo $this->Html->link($post['Post']['title'],'/posts/view/'.$post['Post']['id']);//個別記事へのリンク　（表示される名称、飛ばすurl）
         ?>
         <?php echo $this->Html->link('編集',array('action'=>'edit',$post['Post']['id']));?> 
         <?php
@@ -17,7 +17,7 @@
 </ul>
 
 <h2>Add Post</h2>
-<?php echo $this->Html->link('Add post',array('controller'=>'posts','action'=>'add'));
+<?php echo $this->Html->link('Add post',array('controller'=>'posts','action'=>'add'));//postsコントローラのaddを使用する
 ?>
 
 <script>

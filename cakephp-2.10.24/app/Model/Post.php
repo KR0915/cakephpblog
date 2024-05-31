@@ -1,5 +1,5 @@
 <?php
-//入力欄でのルール設定
+//入力欄でのエラーチェック　このことをバリデーションという
 class Post extends AppModel {
     public $hasMany="Comment";
     

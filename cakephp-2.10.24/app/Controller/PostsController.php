@@ -1,23 +1,23 @@
 <?php
 
 class PostsController extends AppController{
-    public $helpers=array('Html','Form');
+    public $helpers=array('Html','Form');//HtmlとFormヘルパー
     //全記事取得のAPI
     public function index(){
-        $this->set('posts',$this->Post->find('all'));//viewに渡すときにthisを使う findはデータをもって来いという指示
+        $this->set('posts',$this->Post->find('all'));//viewで使うposts変数にPostテーブルからすべての値をもってくる　記事の一覧を引っ張て来て変数にセットする。
         $this->set('title_for_layout','記事一覧');
     }
-    //全記事取得用API
-    public function view($id=null){
-        $this->Post->id=$id;
-        $this->set('post',$this->Post->read());
+    //個別事取得用API
+    public function view($id=null){//idを初期値にしている
+        $this->Post->id=$id;//idを特定している
+        $this->set('post',$this->Post->read());//特定したidから読み取りをしている。
     }
     //追加用API
     public function add(){
-        if ($this->request->is('post')){
-            if ($this->Post->save($this->request->data)){
+        if ($this->request->is('post')){//postでデータが入ってきたら次の事をやりなさい
+            if ($this->Post->save($this->request->data)){//渡されたデータを基にpostモデルにセーブする　ifうまくいった場合elseうまくいかなかった場合
                 $this->Session->setFlash('Success');
-                $this->redirect(array('action'=>'index'));
+                $this->redirect(array('action'=>'index'));//うまくいった場合indexにリダイレクトする
             }else{
                 $this->Session->setFlash('failed!');//うまくいかなかった場合エラーメッセージを返す
             }
@@ -25,7 +25,7 @@ class PostsController extends AppController{
     }
     //編集用API
     public function edit($id=null){
-        $this->Post->id=$id;
+        $this->Post->id=$id;//
         if($this->request->is('get')){
             $this->request->data=$this->Post->read();
         }else{

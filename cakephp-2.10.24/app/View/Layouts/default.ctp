@@ -38,7 +38,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'https://cakephp.org'); ?></h1>
+			<h1><?php echo $this->Html->link('Home', '/'); ?></h1>//ホームに飛ばすurl
 		</div>
 		<div id="content">
 
