@@ -25,7 +25,7 @@ class PostsController extends AppController{
     }
     //編集用API
     public function edit($id=null){
-        $this->Post->id=$id;//
+        $this->Post->id=$id;//id特定
         if($this->request->is('get')){
             $this->request->data=$this->Post->read();
         }else{
